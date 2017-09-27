@@ -30,24 +30,29 @@ public String getFirstName() {
 public String getLastName() {
 	return last;
 }
-@Override
 public boolean matches(String first, String last) {
 	return first.toLowerCase().equals(first.toLowerCase()) && last.toLowerCase().equals(last.toLowerCase());
 }
-@Override
+
 public boolean matches(String last) {
 	return last.toLowerCase().equals(last.toLowerCase());
 }
-@Override
+
 public String getReportString() {
 	String report = last;
-	report = restrictStringToLength(report, 20);
-	
-	return null;
-}
-
-private String restrictStringToLength(String report, int i) {
-	
-	return null;
+	while(report.length() < 20) {
+	report += " ";
+	}
+	report += first;
+	while(report.length() < 40) {
+	report += " ";
+	}
+	if (isPresent()) {
+	report += "Present";
+	}
+	else {
+	report += "Absent";
+	}
+	return report;
 }
 }
